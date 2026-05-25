@@ -1,9 +1,7 @@
-const App = () => {
-  return (
-    <div>
-      <p>Weather Forcast</p>
-    </div>
-  )
-}
+import { Text } from "@chakra-ui/react";
 
-export default App
+const App = () => {
+  return <Text>Hello Chakra</Text>;
+};
+
+export default App;
