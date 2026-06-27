@@ -1,10 +1,18 @@
-import { Box, HStack } from "@chakra-ui/react";
+import { HStack } from "@chakra-ui/react";
 import ColorMode from "./ColorModeSwitch";
+import SearchInput from "./SearchInput";
+import Weather from "./Weather";
 
 const NavBar = () => {
-  return <Box shadow="lg" borderRadius="5px" padding={2} mx={250} my={10} >
-    <ColorMode/>
-  </Box>
+  return (
+    <>
+    <HStack shadow="lg" borderRadius={5} padding={5} mx={20} my={10}>
+      <ColorMode />
+      <SearchInput />
+    </HStack>
+    <Weather/>
+    </>
+  );
 };
 
 export default NavBar;
