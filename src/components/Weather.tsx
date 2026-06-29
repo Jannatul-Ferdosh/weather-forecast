@@ -5,12 +5,12 @@ const Weather = () => {
   const { data, error, isLoading } = useWeather();
   if (error) return null;
   if (isLoading) return <Spinner />;
-  console.log(data);
-  return (
+  if(data) return (
     <>
-      <p>{data?.main.temp}°C</p>
+     <p>{data?.main.temp}°C</p>
     </>
   );
+  else return null;
 };
 
 export default Weather;

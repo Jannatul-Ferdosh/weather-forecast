@@ -1,9 +1,8 @@
-import axios from "axios";
+import axios, { type AxiosRequestConfig } from "axios";
 
 const axiosInstance = axios.create({
     baseURL: "https://api.openweathermap.org/data/2.5",
     params: {
-        q: "Khulna",
         appid: "fcf1db3317f93daa417565a886921676",
     },
 })
@@ -15,9 +14,9 @@ class APIClient{
         this.endpoint = endpoint;
     }
 
-    getAll = () => {
+    getAll = (config: AxiosRequestConfig) => {
         return axiosInstance
-        .get(this.endpoint)
+        .get(this.endpoint, config)
         .then(res => res.data)
     }
 }
