@@ -1,0 +1,20 @@
+import useWeather from "@/hooks/useWeather";
+import { Box, Spinner,Text } from "@chakra-ui/react";
+import { TbTemperatureSun } from "react-icons/tb";
+import { MdOutlineAir } from "react-icons/md";
+
+const WeatherDetails = () => {
+  const { data, error, isLoading } = useWeather();
+  if (error) return null;
+  if (isLoading) return <Spinner />;
+  console.log(data);
+  return <Box shadow="lg" borderRadius={5} padding={5} margin={10}>
+    <Text>Weather : {data?.weather[0].description}</Text>
+    <Text>Humidity : {data?.main.humidity}%</Text>
+    <Text>Feels Like : {data?.main.feels_like}°C</Text>
+    <Text style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><TbTemperatureSun /> {data?.main.temp}°C</Text>
+    <Text style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><MdOutlineAir/>{data?.wind.speed} km/h</Text>
+  </Box>;
+};
+
+export default WeatherDetails;

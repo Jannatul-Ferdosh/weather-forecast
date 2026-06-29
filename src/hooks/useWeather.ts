@@ -11,6 +11,7 @@ const useWeather = () =>{
     queryFn: () => apiClient.getAll({
       params:{
         q: city,
+        units: "metric",
       }
     }),
     enabled: !!city,
