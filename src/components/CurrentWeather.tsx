@@ -8,7 +8,7 @@ const CurrentWeather = () => {
   if (error) return null;
   if (isLoading) return <Spinner />;
   if(data) return (
-    <WeatherDetails/>
+    <Weather/>
   );
   else return null;
 };

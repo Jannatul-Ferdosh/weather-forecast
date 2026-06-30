@@ -1,16 +1,32 @@
-import useWeather from "@/hooks/useWeather";
-import { Spinner } from "@chakra-ui/react";
+import useWeather from '@/hooks/useWeather';
+import { Box, Image, Spinner,Text } from '@chakra-ui/react';
+import sunrise from '../assets/sunrise.png';
+import sunset from '../assets/sunsets.png'
+
 
 const Weather = () => {
   const { data, error, isLoading } = useWeather();
   if (error) return null;
   if (isLoading) return <Spinner />;
-  if(data) return (
-    <>
-     <p>{data?.main.temp}°C</p>
-    </>
-  );
-  else return null;
-};
+  console.log(data);
 
-export default Weather;
+  const SunriseUnixTime = data?.sys.sunrise * 1000;
+  const dateObject1 = new Date(SunriseUnixTime);
+  const SunriseTime = dateObject1.toLocaleTimeString();
+
+  const SunsetUnixTime = data?.sys.sunset * 1000;
+  const dateObject2 = new Date(SunsetUnixTime);
+  const SunsetTime = dateObject2.toLocaleTimeString();
+
+  return (
+    <Box shadow="lg" borderRadius={5} padding={5} margin={10}>
+        <Text marginBottom={5}>{data?.name}</Text>
+        <Text>{SunriseTime}</Text>
+        <Image src={sunrise} boxSize="50px" objectFit="cover" margin={2}/>
+        <Text>{SunsetTime}</Text>
+        <Image src={sunset} boxSize="50px" objectFit="cover" margin={2}/>
+    </Box>
+  )
+}
+
+export default Weather
