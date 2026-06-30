@@ -1,7 +1,6 @@
 import { HStack } from "@chakra-ui/react";
 import ColorMode from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
-import CurrentWeather from "./CurrentWeather";
 
 const NavBar = () => {
   return (
@@ -10,7 +9,6 @@ const NavBar = () => {
       <ColorMode />
       <SearchInput />
     </HStack>
-    <CurrentWeather/>
     </>
   );
 };
