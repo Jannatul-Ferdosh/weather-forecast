@@ -6,7 +6,7 @@ import CurrentWeather from "./CurrentWeather";
 const NavBar = () => {
   return (
     <>
-    <HStack shadow="lg" borderRadius={5} padding={5} mx={20} my={10}>
+    <HStack shadow="lg" borderRadius={20} padding={5} mx={20} my={10} bgColor="#d8f0fd">
       <ColorMode />
       <SearchInput />
     </HStack>

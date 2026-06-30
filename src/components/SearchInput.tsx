@@ -6,17 +6,15 @@ import { BsSearch } from "react-icons/bs";
 const SearchInput = () => {
   const ref = useRef<HTMLInputElement>(null);
   const setcity = useWeatherStore(s => s.setcity);
-  const city = useWeatherStore(s => s.city);
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
         if(ref.current) setcity(ref.current.value);
-        console.log(city);
       }}
     >
-      <InputGroup endElement={<BsSearch />}>
-        <Input ref={ref} placeholder="Search City Name Here..." />
+      <InputGroup endElement={<BsSearch />} borderRadius={20} bgColor="#ffffff">
+        <Input ref={ref} borderRadius={20} placeholder="Search City Name Here..." />
       </InputGroup>
     </form>
   );

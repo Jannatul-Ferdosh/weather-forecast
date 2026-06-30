@@ -19,8 +19,8 @@ const Weather = () => {
   const SunsetTime = dateObject2.toLocaleTimeString();
 
   return (
-    <Box shadow="lg" borderRadius={5} padding={5} margin={10}>
-        <Text marginBottom={5}>{data?.name}</Text>
+    <Box display="grid" justifyContent="center" shadow="lg" borderRadius={20} padding={5} margin={10} bgColor="#c5fafe">
+        <Text display="flex" justifyContent="center" marginBottom={5}>{data?.name}</Text>
         <Text>{SunriseTime}</Text>
         <Image src={sunrise} boxSize="50px" objectFit="cover" margin={2}/>
         <Text>{SunsetTime}</Text>
