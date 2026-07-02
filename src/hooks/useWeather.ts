@@ -2,7 +2,7 @@ import APIClient from "@/services/apiClients";
 import useWeatherStore from "@/store";
 import { useQuery } from "@tanstack/react-query";
 
-const apiClient = new APIClient("/weather");
+const apiClient = new APIClient();
 
 const useWeather = () =>{
   const city = useWeatherStore(s => s.city);
