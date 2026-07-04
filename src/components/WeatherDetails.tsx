@@ -7,7 +7,7 @@ const WeatherDetails = () => {
   const { data, error, isLoading } = useWeather();
   if (error) return null;
   if (isLoading) return <Spinner />;
-  console.log(data);
+  
   return <Box display="grid" justifyContent="center" gap={5} shadow="lg" borderRadius={20} padding={10} margin={10} bgColor="#c5fafe">
     <Text>Weather : {data?.weather[0].description}</Text>
     <Text>Humidity : {data?.main.humidity}%</Text>

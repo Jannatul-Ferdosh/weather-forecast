@@ -8,7 +8,6 @@ const Weather = () => {
   const { data, error, isLoading } = useWeather();
   if (error) return null;
   if (isLoading) return <Spinner />;
-  console.log(data);
 
   const SunriseUnixTime = data?.sys.sunrise * 1000;
   const dateObject1 = new Date(SunriseUnixTime);

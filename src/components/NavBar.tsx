@@ -5,7 +5,7 @@ import SearchInput from "./SearchInput";
 const NavBar = () => {
   return (
     <>
-    <HStack shadow="lg" borderRadius={20} padding={5} mx={20} my={10} bgColor="#d8f0fd">
+    <HStack shadow="lg" borderRadius={20} padding={5} mx={{base:5, md:20}} my={10} bgColor="#d8f0fd">
       <ColorMode />
       <SearchInput />
     </HStack>

@@ -1,4 +1,5 @@
 import CurrentWeather from "./components/CurrentWeather";
+import Forcast from "./components/Forcast";
 import NavBar from "./components/NavBar";
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <>
       <NavBar />
       <CurrentWeather />
+      <Forcast />
     </>
   );
 };
