@@ -7,7 +7,7 @@ const apiClient = new APIClient();
 const useWeather = () =>{
   const city = useWeatherStore(s => s.city);
   return useQuery({
-    queryKey: [city],
+    queryKey: ['weather', city],
     queryFn: () => apiClient.getAll({
       params:{
         q: city,

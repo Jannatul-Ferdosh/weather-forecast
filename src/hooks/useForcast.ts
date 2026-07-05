@@ -7,7 +7,7 @@ const forecastApi = new ForecastAPI();
 const useForecast = () =>{
     const city = useWeatherStore(s => s.city);
     return useQuery({
-        queryKey: [city],
+        queryKey: ['forecast', city],
         queryFn: () => forecastApi.getAll({
             params: {
                 q: city,
