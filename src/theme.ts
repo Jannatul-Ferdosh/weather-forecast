@@ -11,7 +11,7 @@ const config = defineConfig({
           300: { value: "#63b3ed" },
           400: { value: "#4299e1" },
           500: { value: "#3182ce" },
-          600: { value: "#2b6cb0" },
+          600: { value: "#86ddff" },
           700: { value: "#2c5282" },
           800: { value: "#2a4365" },
           900: { value: "#1A365D" },
@@ -20,8 +20,17 @@ const config = defineConfig({
     },
     semanticTokens: {
   colors: {
-    primary: {
-      value: { base: "blue.500", _dark: "blue.300" },
+    pageBg: {
+      value: {
+        base: "{colors.blue.600}",
+        _dark: "{colors.blue.900}",
+      },
+    },
+    textColor: {
+      value: {
+        base: "{colors.gray.100}",
+        _dark: "{colors.gray.100}",
+      },
     },
   },
 }

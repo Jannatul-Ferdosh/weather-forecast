@@ -8,7 +8,7 @@ const WeatherDetails = () => {
   if (error) return null;
   if (isLoading) return <Spinner />;
   
-  return <Box display="grid" justifyContent="center" gap={5} shadow="lg" borderRadius={20} padding={10} margin={10} bgColor="#c5fafe">
+  return <Box display="grid" justifyContent="center" gap={5} shadow="lg" borderRadius={20} padding={10} margin={10} bgColor="#03a7f3">
     <Text>Weather : {data?.weather[0].description}</Text>
     <Text>Humidity : {data?.main.humidity}%</Text>
     <Text>Feels Like : {data?.main.feels_like}°C</Text>
