@@ -1,5 +1,5 @@
 import useForecast from "@/hooks/useForcast";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Image } from "@chakra-ui/react";
 
 interface Props {
   i: number;
@@ -7,7 +7,9 @@ interface Props {
 
 const ForeCastBox = ({ i }: Props) => {
   const { data } = useForecast();
-  
+  const iconcode = data.list[i].weather[0].icon;
+  const dayIcon = iconcode.endsWith('n') ? iconcode.replace('n', 'd') : iconcode;
+  const url = "https://openweathermap.org/img/wn/" + dayIcon + "@2x.png";
   return (
     <Box
       display="grid"
@@ -18,11 +20,20 @@ const ForeCastBox = ({ i }: Props) => {
       margin={10}
       bgColor="#c5fafe"
     >
-      <Text display="flex" justifyContent="center" marginBottom={5} whiteSpace="nowrap">
-        {data?.list[i].dt_txt.substring(0,10)}
+      <Text
+        display="flex"
+        justifyContent="center"
+        whiteSpace="nowrap"
+      >
+        {data?.list[i].dt_txt.substring(0, 10)}
       </Text>
-      <Text display="flex" justifyContent="center" marginBottom={5}>
-        {data?.list[i].main.temp}
+      <Image
+        src={url}
+        boxSize="50px"
+        objectFit="cover"
+      />
+      <Text display="flex" justifyContent="center">
+        {data?.list[i].main.temp}°C
       </Text>
     </Box>
   );
