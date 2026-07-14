@@ -1,30 +1,47 @@
 import useWeather from "@/hooks/useWeather";
-import { GridItem, SimpleGrid, Spinner } from "@chakra-ui/react";
+import { GridItem, SimpleGrid, Box, Spinner, Text } from "@chakra-ui/react";
 import WeatherDetails from "./WeatherDetails";
 import Weather from "./Weather";
 
 const CurrentWeather = () => {
   const { data, error, isLoading } = useWeather();
   if (error) return null;
-  if (isLoading) return <Spinner />;
-  if (data)
+  if (isLoading) return (
+    <Box display="flex" justifyContent="center" py={20}>
+      <Spinner size="xl" />
+    </Box>
+  );
+  if (!data) {
     return (
-      <>
-        <SimpleGrid
-          columns={{ base: 1, md: 2 }}
-          display={{ base: "grid", md: "flex" }}
-          justifyContent="center"
-        >
-          <GridItem width={{ base: "100%", md: "450px" }}>
-            <Weather />
-          </GridItem>
-          <GridItem width={{ base: "100%", md: "500px" }}>
-            <WeatherDetails />
-          </GridItem>
-        </SimpleGrid>
-      </>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minH="50vh"
+      >
+        <Text fontSize="xl" color="subtleText">
+          Search for a city to see weather information
+        </Text>
+      </Box>
     );
-  else return null;
+  }
+
+  return (
+    <SimpleGrid
+      columns={{ base: 1, lg: 2 }}
+      gap={{ base: 4, md: 6 }}
+      maxW="1000px"
+      mx="auto"
+      mb={10}
+    >
+      <GridItem>
+        <Weather />
+      </GridItem>
+      <GridItem>
+        <WeatherDetails />
+      </GridItem>
+    </SimpleGrid>
+  );
 };
 
 export default CurrentWeather;

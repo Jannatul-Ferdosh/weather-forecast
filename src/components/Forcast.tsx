@@ -1,5 +1,5 @@
 import useForecast from "@/hooks/useForcast";
-import { GridItem, SimpleGrid, Spinner } from "@chakra-ui/react";
+import { GridItem, SimpleGrid, Box, Spinner } from "@chakra-ui/react";
 import ForcastHeading from "./ForcastHeading";
 import ForeCastBox from "./ForeCastBox";
 
@@ -8,26 +8,30 @@ const Forcast = () => {
   const forecastBox = [0, 8, 16, 24, 32];
 
   if (error) return null;
-  if (isLoading) return <Spinner />;
-  console.log(data);
-  if (data) {
-    return (
-      <>
-        <ForcastHeading />
-        <SimpleGrid
-          columns={{ base: 1, md: 3, lg: 5 }}
-          display={{ base: "grid", lg: "flex" }}
-          justifyContent="center"
-        >
-          {forecastBox.map((i) => (
-            <GridItem width={{ base: "100%", md: "100%", lg: "220px" }}>
-              <ForeCastBox i={i} />
-            </GridItem>
-          ))}
-        </SimpleGrid>
-      </>
-    );
-  }
+  if (isLoading) return (
+    <Box display="flex" justifyContent="center" py={10}>
+      <Spinner size="xl" />
+    </Box>
+  );
+  if (!data) return null;
+
+  return (
+    <Box mt={8}>
+      <ForcastHeading />
+      <SimpleGrid
+        columns={{ base: 1, sm: 2, md: 3, lg: 5 }}
+        gap={{ base: 4, md: 6 }}
+        maxW="1200px"
+        mx="auto"
+      >
+        {forecastBox.map((i) => (
+          <GridItem key={i}>
+            <ForeCastBox i={i} />
+          </GridItem>
+        ))}
+      </SimpleGrid>
+    </Box>
+  );
 };
 
 export default Forcast;

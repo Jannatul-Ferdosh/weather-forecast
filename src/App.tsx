@@ -6,9 +6,11 @@ import NavBar from "./components/NavBar";
 const App = () => {
   return (
     <Box minH="100vh" bg="pageBg" color="textColor">
-      <NavBar />
-      <CurrentWeather />
-      <Forcast />
+      <Box maxW="1400px" mx="auto" px={{ base: 4, md: 8 }} pb={16}>
+        <NavBar />
+        <CurrentWeather />
+        <Forcast />
+      </Box>
     </Box>
   );
 };
