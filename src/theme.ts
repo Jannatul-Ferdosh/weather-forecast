@@ -22,14 +22,14 @@ const config = defineConfig({
   colors: {
     pageBg: {
       value: {
-        base: "{colors.blue.600}",
-        _dark: "{colors.blue.900}",
+        base: "{colors.blue.50}",
+        _dark: "{colors.blue.700}",
       },
     },
     textColor: {
       value: {
-        base: "{colors.gray.100}",
-        _dark: "{colors.gray.100}",
+        base: "{colors.gray.900}",
+        _dark: "{colors.gray.900}",
       },
     },
   },

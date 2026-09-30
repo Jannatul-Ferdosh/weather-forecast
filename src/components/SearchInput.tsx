@@ -13,7 +13,7 @@ const SearchInput = () => {
         if(ref.current) setcity(ref.current.value);
       }}
     >
-      <InputGroup endElement={<BsSearch />} borderRadius={20} bgColor="#a2e3ff">
+      <InputGroup endElement={<BsSearch />} borderRadius={20} bgColor="#ffffff">
         <Input color="gray.900" ref={ref} borderRadius={20} placeholder="Search City Name Here..." />
       </InputGroup>
     </form>

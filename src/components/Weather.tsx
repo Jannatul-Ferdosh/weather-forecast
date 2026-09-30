@@ -28,7 +28,7 @@ const Weather = () => {
       borderRadius={20}
       padding={5}
       margin={10}
-      bgColor="#03a7f3"
+      bgColor="#bee3f8"
     >
       <Text display="flex" justifyContent="center">
         {data?.name}
